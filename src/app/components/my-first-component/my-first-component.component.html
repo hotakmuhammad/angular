@@ -1,6 +1,60 @@
-<p>{{ title }}</p>
-<p>My user : </p>
-<ul>
-    <li>{{ user.name }}</li>
-    <li>{{ user.age }}</li>
-</ul>
+<div class="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-md">
+    <p class="text-2xl font-semibold text-gray-800">{{ title }}</p>
+
+    <p class="text-lg font-medium text-gray-700 mt-4">My user:</p>
+    <ul class="list-disc pl-5 text-gray-600">
+        <li class="text-base font-normal">{{ user.name }}</li>
+        <li class="text-base font-normal">{{ user.age }}</li>
+    </ul>
+
+    <button 
+        (click)="handleClick()" 
+        class="mt-4 bg-green-500 text-white px-4 py-2 rounded-md transition duration-300 hover:bg-sky-700 focus:ring-2 focus:ring-green-300"
+    >
+        Just click to see the magic
+    </button>
+
+    <div class="myFormContainer mt-6">
+        <form (submit)="handleSubmit($event)" class="space-y-4 bg-gray-50 p-4 rounded-lg shadow">
+            
+            <div class="flex flex-col">
+                <label for="name" class="text-gray-700 font-medium">Nom:</label>
+                <input 
+                    class="mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-400 outline-none" 
+                    type="text" name="name" id="name"
+                >
+            </div>
+
+            <div class="flex flex-col">
+                <label for="age" class="text-gray-700 font-medium">Age:</label>
+                <input 
+                    class="mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-400 outline-none" 
+                    type="number" name="age" id="age"
+                >
+            </div>
+
+            <button 
+                class="w-full bg-green-500 text-white px-4 py-2 rounded-md transition duration-300 hover:bg-sky-700 focus:ring-2 focus:ring-green-300"
+            >
+                Envoyer
+            </button>
+        </form>
+    </div>
+
+    <div>
+        <div>
+            <input type="checkbox" (change)="handleCheckBox($event)" id="checkbox" name="checkbox" value="checkbox">
+            <p>{{ checkBoxValue }}</p>
+        </div>
+          <!-- todo ne fonctionne pas -->
+        <!-- <div>
+            <input type="checkbox"[checked]="checkBoxValue1" id="checkbox" name="checkbox" value="checkbox">
+            <p>{{ checkBoxValue1 }}</p>
+        </div> -->
+
+        <div>
+            <input type="checkbox" [(ngModel)]="checkBoxValue2">
+            <p>{{ checkBoxValue2 }}</p>
+        </div>
+    </div>
+</div>
