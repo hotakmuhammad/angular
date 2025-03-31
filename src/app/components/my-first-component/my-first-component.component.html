@@ -56,5 +56,16 @@
             <input type="checkbox" [(ngModel)]="checkBoxValue2">
             <p>{{ checkBoxValue2 }}</p>
         </div>
+
+        <!-- if/else Example of ngModel with checkbox -->
+        @if (checkBoxValue || checkBoxValue2) {
+            <p>A check is selected</p>
+        }
+        @if (checkBoxValue && checkBoxValue2) {
+            <p>Both checkboxes are selected</p>
+        }
+        @else {
+            <p>Non of the checkbox is selected</p>
+        }
     </div>
 </div>
