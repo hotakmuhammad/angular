@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ChildFormComponent } from "../child-form/child-form.component";
 
 @Component({
   selector: 'app-my-first-component',
-  imports: [FormsModule],
+  imports: [FormsModule, ChildFormComponent],
   templateUrl: './my-first-component.component.html',
   styleUrl: './my-first-component.component.css'
 })
@@ -32,23 +33,7 @@ export class MyFirstComponentComponent {
   handleClick() {
     alert('See ! you just click the magic button');
   }
-
-  handleSubmit(e: Event): void {
-    e.preventDefault();
-    console.log(e);
-    alert('Form submitted!');
-
-    const target = e.target as HTMLFormElement;
-    const formDate = new FormData(target);
-
-    const name: string = formDate.get('name')!.toString();
-    const age: number = Number(formDate.get('age'));
-
-    alert(`Name: ${name}, Age: ${age}`);
-
-    
-  }
-
+ 
   handleCheckBox(e: Event): void {
 
     const target = e.target as HTMLInputElement;

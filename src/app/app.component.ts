@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MyFirstComponentComponent } from "./components/my-first-component/my-first-component.component";
+import { ChildFormComponent } from "./components/child-form/child-form.component";
 
 
 
@@ -10,7 +11,7 @@ interface Person{
 
 @Component({
   selector: 'app-root',
-  imports: [MyFirstComponentComponent],
+  imports: [MyFirstComponentComponent, ChildFormComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

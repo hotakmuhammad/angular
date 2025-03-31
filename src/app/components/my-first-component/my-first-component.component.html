@@ -9,40 +9,14 @@
 
     <button 
         (click)="handleClick()" 
-        class="mt-4 bg-green-500 text-white px-4 py-2 rounded-md transition duration-300 hover:bg-sky-700 focus:ring-2 focus:ring-green-300"
-    >
+        class="mt-4 bg-green-500 text-white px-4 py-2 rounded-md transition duration-300 hover:bg-sky-700 focus:ring-2 focus:ring-green-300">
         Just click to see the magic
     </button>
 
-    <div class="myFormContainer mt-6">
-        <form (submit)="handleSubmit($event)" class="space-y-4 bg-gray-50 p-4 rounded-lg shadow">
-            
-            <div class="flex flex-col">
-                <label for="name" class="text-gray-700 font-medium">Nom:</label>
-                <input 
-                    class="mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-400 outline-none" 
-                    type="text" name="name" id="name"
-                >
-            </div>
+<app-child-form></app-child-form>
 
-            <div class="flex flex-col">
-                <label for="age" class="text-gray-700 font-medium">Age:</label>
-                <input 
-                    class="mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-400 outline-none" 
-                    type="number" name="age" id="age"
-                >
-            </div>
-
-            <button 
-                class="w-full bg-green-500 text-white px-4 py-2 rounded-md transition duration-300 hover:bg-sky-700 focus:ring-2 focus:ring-green-300"
-            >
-                Envoyer
-            </button>
-        </form>
-    </div>
-
-    <div>
-        <div>
+    <div class="flex">
+        <div class="m-5">
             <input type="checkbox" (change)="handleCheckBox($event)" id="checkbox" name="checkbox" value="checkbox">
             <p>{{ checkBoxValue }}</p>
         </div>
@@ -52,20 +26,20 @@
             <p>{{ checkBoxValue1 }}</p>
         </div> -->
 
-        <div>
+        <div class="m-5">
             <input type="checkbox" [(ngModel)]="checkBoxValue2">
             <p>{{ checkBoxValue2 }}</p>
         </div>
-
-        <!-- if/else Example of ngModel with checkbox -->
-        @if (checkBoxValue || checkBoxValue2) {
-            <p>A check is selected</p>
-        }
-        @if (checkBoxValue && checkBoxValue2) {
-            <p>Both checkboxes are selected</p>
-        }
-        @else {
-            <p>Non of the checkbox is selected</p>
-        }
     </div>
+    
+            <!-- if/else Example of ngModel with checkbox -->
+            @if (checkBoxValue || checkBoxValue2) {
+                <p>A check is selected</p>
+            }
+            @if (checkBoxValue && checkBoxValue2) {
+                <p>Both checkboxes are selected</p>
+            }
+            @else {
+                <p>Non of the checkbox is selected</p>
+            }
 </div>
