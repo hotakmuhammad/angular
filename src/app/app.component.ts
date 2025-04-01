@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MyFirstComponentComponent } from "./components/my-first-component/my-first-component.component";
 import { ChildFormComponent } from "./components/child-form/child-form.component";
+import { RouterOutlet } from '@angular/router';
 
 
 
@@ -11,7 +12,7 @@ interface Person{
 
 @Component({
   selector: 'app-root',
-  imports: [MyFirstComponentComponent, ChildFormComponent],
+  imports: [RouterOutlet, MyFirstComponentComponent, ChildFormComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

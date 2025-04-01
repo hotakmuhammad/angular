@@ -11,7 +11,7 @@
         <div class="flex flex-col">
             <label for="name" class="text-gray-700 font-medium">Nom:</label>
             <input 
-                class="mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-400 outline-none" 
+                class="mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-yellow-400 outline-none" 
                 type="text" name="name" id="name"
             >
         </div>
@@ -19,13 +19,13 @@
         <div class="flex flex-col">
             <label for="age" class="text-gray-700 font-medium">Age:</label>
             <input 
-                class="mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-400 outline-none" 
+                class="mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-yellow-400 outline-none" 
                 type="number" name="age" id="age"
             >
         </div>
 
         <button 
-            class="w-full bg-green-500 text-white px-4 py-2 rounded-md transition duration-300 hover:bg-sky-700 focus:ring-2 focus:ring-green-300"
+            class="w-full bg-yellow-500 text-white px-4 py-2 rounded-md transition duration-300 hover:bg-sky-700 focus:ring-2 focus:ring-yellow-300"
         >
             Envoyer
         </button>
@@ -37,7 +37,7 @@
         <label for="name" class="text-gray-700 font-medium">Nom:</label>
         <input 
             [(ngModel)]="inputValueName"
-            class="mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-400 outline-none" 
+            class="mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-yellow-400 outline-none" 
             type="text" name="name" id="name"
         >
         <p>Value entered : {{ inputValueName }} </p>
@@ -47,7 +47,7 @@
         <label for="age" class="text-gray-700 font-medium">Age:</label>
         <input 
         [(ngModel)]="inputValueAge"
-            class="mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-400 outline-none" 
+            class="mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-yellow-400 outline-none" 
             type="number" name="age" id="age"
         >
         <p>Value entered : {{ inputValueAge }} </p>
@@ -55,14 +55,40 @@
 </div>
 
 <div>
-    <p>Courses with 'for' example : </p>
+
+    <div class="flex flex-col p-4 m-4 bg-gray-50 rounded-lg shadow">
+        <input type="text" placeholder="Search..." [(ngModel)]="searchValue" 
+        (input)="searchItem()"
+        class="mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-yellow-400 outline-none" />
+    </div>
+
     @for (course of courses; track course.id) {
         
         
         <ul>
-            <li>Id : {{ course.id }}</li>
+            <li>Id : {{ course.id }} 
+                <span class="p-2"><a (click)="deleteItem(course.id)"
+                    class="mt-1 bg-yellow-500 text-white px-2 py-1 rounded-md transition duration-300 hover:bg-sky-700 focus:ring-2 focus:ring-gryelloween-300"
+                    >Delete</a></span></li>
             <li>Name : {{ course.name }}</li>
+            
         </ul>}
+
+        <div>
+            <form (submit)="addCourse($event)" class="space-y-4 bg-gray-50 p-4 rounded-lg shadow">
+                <div class="flex flex-col">
+                    <label for="name" class="text-gray-700 font-medium">Nom:</label>
+                    <input 
+                        [(ngModel)]="inputValueCourseName"
+                        class="m-2 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-yellow-400 outline-none" 
+                        type="text" name="name" id="name"
+                    >
+                    <button class="w-full bg-yellow-500 text-white px-4 py-2 rounded-md transition duration-300 hover:bg-sky-700 focus:ring-2 focus:ring-yellow-300">Add Course</button>
+
+                    </div>
+               
+            </form>
+        </div>
 
 </div>
 

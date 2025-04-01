@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ChildFormComponent } from "../child-form/child-form.component";
+import { NgForComponent } from "../ng-for/ng-for.component";
 
 @Component({
   selector: 'app-my-first-component',
-  imports: [FormsModule, ChildFormComponent],
+  imports: [FormsModule, ChildFormComponent, NgForComponent],
   templateUrl: './my-first-component.component.html',
   styleUrl: './my-first-component.component.css'
 })

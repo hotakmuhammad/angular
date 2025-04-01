@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class ChildFormComponent {
 
+
   courses = [
     { id: 1, name: 'Angular' },
     { id: 2, name: 'React' },
@@ -32,6 +33,10 @@ export class ChildFormComponent {
   inputValueName: string = '';
   inputValueAge: number = 0;
 
+  inputValueCourseId: number = 0;
+  inputValueCourseName: string = '';
+
+  searchValue: string = '';
   handleSubmit(e: Event): void {
     e.preventDefault();
     console.log(e);
@@ -53,6 +58,25 @@ export class ChildFormComponent {
     e.preventDefault();
   }
 
+  deleteItem(courseId: number): void {
+    this.courses = this.courses.filter(course => course.id !== courseId)
+  }
 
+  addCourse(e: Event): void {
+    e.preventDefault();
+    const newCourse = {
+      id: this.courses.length + 1,
+      name: this.inputValueCourseName
+    };
+    this.courses.push(newCourse);
+    this.inputValueCourseName = '';
+  }
+  searchItem(): void {
+   // e.preventDefault();
+    const searchValue = this.searchValue.toLowerCase();
+    this.courses = this.courses.filter(course => course.name.toLowerCase().includes(searchValue))
+    
+  
+  }
 
 }
