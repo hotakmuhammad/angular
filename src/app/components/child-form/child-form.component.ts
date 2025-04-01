@@ -58,8 +58,10 @@ export class ChildFormComponent {
     e.preventDefault();
   }
 
-  deleteItem(courseId: number): void {
-    this.courses = this.courses.filter(course => course.id !== courseId)
+  deleteItem(index: number): void {
+    this.courses.splice(index, 1);
+    //console.log('Item deleted:', index);
+    //this.courses = this.courses.filter(course => course.id !== courseId)
   }
 
   addCourse(e: Event): void {

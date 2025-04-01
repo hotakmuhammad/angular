@@ -62,14 +62,16 @@
         class="mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-yellow-400 outline-none" />
     </div>
 
-    @for (course of courses; track course.id) {
+    @for (course of courses; track course.id; let index = $index) {
         
         
         <ul>
+            <li>Index : {{index}}</li>
             <li>Id : {{ course.id }} 
-                <span class="p-2"><a (click)="deleteItem(course.id)"
+                <span class="p-2"><a (click)="deleteItem(index)"
                     class="mt-1 bg-yellow-500 text-white px-2 py-1 rounded-md transition duration-300 hover:bg-sky-700 focus:ring-2 focus:ring-gryelloween-300"
-                    >Delete</a></span></li>
+                    >Delete</a></span>
+            </li>
             <li>Name : {{ course.name }}</li>
             
         </ul>}

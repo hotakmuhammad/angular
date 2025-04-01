@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { ChildFormComponent } from "../child-form/child-form.component";
+//import { ChildFormComponent } from "../child-form/child-form.component";
 
 @Component({
   selector: 'app-ng-for',
-  imports: [ChildFormComponent],
+  imports: [],
   templateUrl: './ng-for.component.html',
   styleUrl: './ng-for.component.css'
 })
